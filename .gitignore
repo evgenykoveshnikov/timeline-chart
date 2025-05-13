@@ -1,0 +1,46 @@
+# Основные файлы ОС и редактора
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+*.code-workspace
+
+# Зависимости и сборка
+node_modules/
+dist/
+.cache/
+.temp/
+
+# Логи и настройки
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Переменные окружения
+.env
+.env.local
+.env.development
+.env.production
+
+# Тестовые файлы
+coverage/
+.nyc_output/
+jest.config.js
+
+# Настройки TypeScript
+tsconfig.tsbuildinfo
+
+# Дополнительно для Webpack
+stats.json
+webpack-assets.json
+
+# Для Sass/SCSS (если используете source maps)
+*.sass.map
+*.scss.map
+
+# Автогенерируемые файлы
+*.js
+!webpack.config.js
+*.d.ts
