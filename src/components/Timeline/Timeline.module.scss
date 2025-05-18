@@ -1,0 +1,412 @@
+@use '../../styles//global.scss' as *;
+
+.timelineContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: $text-family-base;
+    position: relative;
+    height: 100dvh;
+    overflow: hidden;
+    padding-top: 170px;
+    padding-bottom: 20px;
+
+    
+
+    .verticalLineLeft,
+    .verticalLineMiddle,
+    .verticalLineRight {
+        position: absolute;
+        top: 0;
+        width: 1px;
+        height: 100%;
+        background-color: rgba(66, 86, 122, 0.1);
+    }
+
+    .verticalLineLeft {
+        left: 0;
+    }
+
+    .verticalLineMiddle {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .verticalLineRight {
+        right: 0;
+    }
+
+    .horizontalLine {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: rgba(66, 86, 122, 0.1);
+    }
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.point-circle {
+  cursor: pointer;
+  fill: $color-primary;
+  stroke: $color-primary;
+  stroke-width: 1;
+  r: 3px;
+  transition: all 0.3s ease;
+
+
+}
+
+.point-circle.active {
+  fill: $background;
+  r: 28px;
+}
+
+.point-circle:hover {
+  fill: #f4f5f9;
+  r: 28px;
+}
+
+.point-text {
+  font-family: $text-family-base;
+  font-size: 20px;
+  fill: $color-primary;
+  pointer-events: none;
+  user-select: none;
+
+}
+
+
+.active-title {
+  font-family: $text-family-base;
+  font-size: 20px;
+  font-weight: 700;
+  fill: $color-primary;
+  pointer-events: none;
+  user-select: none;
+  // opacity: 0;
+}
+
+.mobileTitle {
+  display: none;
+}
+
+.historical-container {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+  
+}
+
+.historical-gradient {
+  width: 5px;
+  height: 120px;
+  background: linear-gradient(to bottom, $color-year, $color-red);
+}
+
+
+.historical-title {
+  font-family: $text-family-base;
+  font-weight: 700;
+  line-height: 120%;
+  font-size: 56px;
+  position: relative;
+}
+
+
+
+.yearDisplay {
+  display: flex;
+  gap: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.startYear,
+.endYear {
+  font-family: $text-family-base;
+  font-size: 200px;
+  line-height: 160%;
+  font-weight: 900;
+  letter-spacing: -2px;
+}
+
+.startYear {
+  color: $color-blue;
+}
+
+.endYear {
+  color: $color-red;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  margin-left: 80px;
+}
+
+.indexDisplay {
+  font-family: $text-family-base;
+  font-size: 14;
+  font-weight: 400;
+  color: $color-primary;
+  margin-bottom: 14px;
+
+}
+
+.navButtons {
+  display: flex;
+  gap: 20px;
+}
+
+.navButton {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  opacity: 0.5;
+  border: 1px solid $color-primary;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+
+} 
+
+.swiperContainer {
+  overflow: hidden;
+  position: relative;
+  padding: 0 80px;
+  opacity: 1;
+}
+
+.eventYear {
+  font-family: 'Bebas Neue';
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 120%;
+  color: $color-year ;
+}
+
+.eventDesc {
+  font-family: $text-family-base;
+  font-size: 20px;
+  font-weight: 400;
+  color: $color-primary;
+}
+
+.swiperSlide {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  min-height: 135px;
+}
+
+
+.visualWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.controlSwiper {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+
+  height: 300px;
+}
+
+.swiperNavButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+
+  filter: drop-shadow(0px 0px 15px rgba(56, 119, 238, 0.1));
+
+  svg {
+    width: 20px;
+    height: 20px;
+    stroke: $color-year
+  }
+
+  &:not(:disabled):hover {
+    opacity: 0.8;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    
+  }
+
+  &.swiperNavButtonPrev {
+  left: 20px;
+  }
+
+  &.swiperNavButtonNext {
+  right: 20px;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .timelineContainer {
+    background-color: #f4f5f9;
+    padding-top: 60px;
+    padding-bottom: 20px;
+  }
+
+  .verticalLineLeft,
+  .verticalLineMiddle,
+  .verticalLineRight,
+  .horizontalLine {
+    display: none;
+  }
+
+  .historical-container {
+    padding-left: 20px;
+  }
+
+  .historical-gradient {
+    display: none;
+  }
+
+  .historical-title {
+    font-size: 20px;
+  }
+
+  .visualWrapper {
+    padding-left: 20px;
+    position: static;
+    transform: none;
+  }
+
+  .yearDisplay {
+    position:relative;
+    gap: 35px;
+  }
+
+  .startYear,
+  .endYear {
+    font-size: 56px
+  }
+
+  .circle {
+    display: none;
+
+  }
+
+  .mobileTitle {
+    display: block;
+    color: $color-primary;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .controlSwiper {
+    flex-direction: column-reverse;
+    height: 340px;
+  }
+
+  .controls {
+    margin-left: 0px;
+    padding-left: 20px;
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  .indexDisplay {
+    font-size: 14px;
+  }
+
+  .swiperContainer {
+    width: 100%;
+    padding: 0px 20px;
+    height: auto;
+  }
+
+  .swiperNavButton {
+    display: none;
+  }
+
+
+  .eventYear {
+    font-size: 16px;
+  }
+
+  .eventDesc {
+    font-size: 14px;
+  }
+
+  .mobileHorizLine {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #c9cdd9;
+    margin-bottom: 20px;
+  }
+
+  .navButtons {
+    gap: 8px;
+  }
+
+  .navButton {
+    width: 25px;
+    height: 25px;
+
+    svg {
+      width: 10px;
+      height: 10px;
+      stroke: 2px;
+    }
+  }
+
+  .periodPagination {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+  }
+
+  .periodDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: $color-primary;
+    opacity: 0.4;
+    cursor: pointer;
+
+  }
+
+  .periodDot.activePeriod {
+    background-color: $color-primary;
+    opacity: 1;
+
+  }
+}
+
+
