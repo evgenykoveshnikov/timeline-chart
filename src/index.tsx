@@ -1,7 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './components/App/App';
-import './styles/global.scss'; // Глобальные стили (опционально)
+import '../src/styles/global.scss'; // Глобальные стили (опционально)
 
 // Получаем корневой элемент
 const container = document.getElementById('root') as HTMLElement;
