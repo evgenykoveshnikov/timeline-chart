@@ -43,4 +43,3 @@ webpack-assets.json
 # Автогенерируемые файлы
 *.js
 !webpack.config.js
-*.d.ts
